@@ -23,21 +23,10 @@ namespace CarteNoel
         {
             InitializeComponent();
             
-            changerimage();
+            
         }
-        private void BackgroundVideo_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            BackgroundVideo.Position = TimeSpan.Zero;
-            BackgroundVideo.Play();
-        }
-        private void tbNom_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        
+      
 
-        }
-        public void changerimage()
-        { 
-                
-                imgboite.Source = new BitmapImage(new Uri("pack://application:,,,/Image/BoiteLettresPleine.png"));
-        }
     }
 }

@@ -5,18 +5,265 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarteNoel"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
-    <Grid>
-        <MediaElement x:Name="BackgroundVideo"
-                  Source="Video/248182_small.mp4"
-                  LoadedBehavior="Play"
-                  UnloadedBehavior="Manual"
-                  Stretch="UniformToFill"
-                  IsMuted="True"
-                   MediaEnded="BackgroundVideo_MediaEnded"
-                   />
-        <TextBox x:Name="tbNom" TextWrapping="Wrap" Text="TextBox" Margin="340,225,266,165" TextChanged="tbNom_TextChanged"/>
-        <Image x:Name="imgboite" HorizontalAlignment="Left" Height="237" Margin="592,197,0,0" Source="/Image/BoiteLettresVide.png" VerticalAlignment="Top" Width="181"/>
+        Title="Window1" Height="700" Width="1000">
+        <!-- Enhanced background with subtle gradient -->
+        <Window.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#0f172a" Offset="0"/>
+                <GradientStop Color="#1e293b" Offset="1"/>
+            </LinearGradientBrush>
+        </Window.Background>
 
+        <Window.Resources>
+            <!-- Multiple snowflakes with varied animations for realistic effect -->
+            <Storyboard x:Key="SnowAnimation" RepeatBehavior="Forever">
+                <DoubleAnimation Storyboard.TargetName="Snow1" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-50" To="800" Duration="0:0:12" 
+                            AutoReverse="False"/>
+                <DoubleAnimation Storyboard.TargetName="Snow2" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-80" To="800" Duration="0:0:15"/>
+                <DoubleAnimation Storyboard.TargetName="Snow3" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-120" To="800" Duration="0:0:18"/>
+                <DoubleAnimation Storyboard.TargetName="Snow4" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-30" To="800" Duration="0:0:10"/>
+                <DoubleAnimation Storyboard.TargetName="Snow5" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-90" To="800" Duration="0:0:14"/>
+                <DoubleAnimation Storyboard.TargetName="Snow6" 
+                            Storyboard.TargetProperty="(Canvas.Top)"
+                            From="-60" To="800" Duration="0:0:16"/>
+            </Storyboard>
+
+            <!-- Modern button style with smooth transitions and glass morphism effect -->
+            <Style x:Key="DayButtonStyle" TargetType="Button">
+                <Setter Property="Width" Value="90"/>
+                <Setter Property="Height" Value="90"/>
+                <Setter Property="Margin" Value="8"/>
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <!-- Outer glow effect -->
+                                <Ellipse x:Name="OuterGlow" Fill="Transparent" 
+                                    Stroke="#dc2626" StrokeThickness="0" Opacity="0">
+                                    <Ellipse.Effect>
+                                        <BlurEffect Radius="20"/>
+                                    </Ellipse.Effect>
+                                </Ellipse>
+
+                                <!-- Main circle with gradient -->
+                                <Ellipse x:Name="Circle">
+                                    <Ellipse.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="#dc2626" Offset="0"/>
+                                            <GradientStop Color="#b91c1c" Offset="1"/>
+                                        </RadialGradientBrush>
+                                    </Ellipse.Fill>
+                                    <Ellipse.Effect>
+                                        <DropShadowEffect Color="#000000" BlurRadius="15" 
+                           ShadowDepth="5" Opacity="0.4"/>
+                                    </Ellipse.Effect>
+                                </Ellipse>
+
+                                <!-- Glossy highlight effect -->
+                                <Ellipse Width="70" Height="35" VerticalAlignment="Top" 
+                                    Margin="0,10,0,0" Opacity="0.3">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="White" Offset="0"/>
+                                            <GradientStop Color="Transparent" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <!-- Inner golden border -->
+                                <Ellipse x:Name="Border" Stroke="#fbbf24" StrokeThickness="3" 
+                                    Margin="3" Fill="Transparent"/>
+
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="OuterGlow" 
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            To="0.6" Duration="0:0:0.3"/>
+                                                <ThicknessAnimation Storyboard.TargetName="OuterGlow"
+                                                               Storyboard.TargetProperty="StrokeThickness"
+                                                               To="8" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="Border"
+                                                           Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)"
+                                                           To="#fcd34d" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="OuterGlow" 
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            To="0" Duration="0:0:0.3"/>
+                                                <ThicknessAnimation Storyboard.TargetName="OuterGlow"
+                                                               Storyboard.TargetProperty="StrokeThickness"
+                                                               To="0" Duration="0:0:0.3"/>
+                                                <ColorAnimation Storyboard.TargetName="Border"
+                                                           Storyboard.TargetProperty="(Ellipse.Stroke).(SolidColorBrush.Color)"
+                                                           To="#fbbf24" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="Circle" Property="Opacity" Value="0.4"/>
+                                    <Setter TargetName="Border" Property="Opacity" Value="0.4"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Modern button style for primary actions -->
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#dc2626"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="{TemplateBinding Background}"
+                                CornerRadius="12" Padding="{TemplateBinding Padding}">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="#dc2626" BlurRadius="20" 
+                                                 ShadowDepth="0" Opacity="0.5"/>
+                                </Border.Effect>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                                           Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                           To="#ef4444" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border"
+                                                           Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                           To="#dc2626" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Window.Resources>
+
+        <Grid>
+            <!-- Enhanced snow animation with more particles -->
+            <Canvas x:Name="SnowCanvas" ClipToBounds="True" IsHitTestVisible="False">
+                <TextBlock x:Name="Snow1" Text="❄" FontSize="32" Foreground="#e0f2fe" 
+                       Canvas.Left="120" Opacity="0.8"/>
+                <TextBlock x:Name="Snow2" Text="❄" FontSize="28" Foreground="#e0f2fe" 
+                       Canvas.Left="280" Opacity="0.6"/>
+                <TextBlock x:Name="Snow3" Text="❄" FontSize="38" Foreground="#e0f2fe" 
+                       Canvas.Left="520" Opacity="0.9"/>
+                <TextBlock x:Name="Snow4" Text="❄" FontSize="24" Foreground="#e0f2fe" 
+                       Canvas.Left="740" Opacity="0.7"/>
+                <TextBlock x:Name="Snow5" Text="❄" FontSize="30" Foreground="#e0f2fe" 
+                       Canvas.Left="920" Opacity="0.8"/>
+                <TextBlock x:Name="Snow6" Text="❄" FontSize="26" Foreground="#e0f2fe" 
+                       Canvas.Left="420" Opacity="0.65"/>
+
+                <!-- Static decorative snowflakes -->
+                <TextBlock Text="❄" FontSize="22" Foreground="#e0f2fe" 
+                       Canvas.Left="180" Canvas.Top="150" Opacity="0.5"/>
+                <TextBlock Text="❄" FontSize="26" Foreground="#e0f2fe" 
+                       Canvas.Left="680" Canvas.Top="280" Opacity="0.6"/>
+                <TextBlock Text="❄" FontSize="20" Foreground="#e0f2fe" 
+                       Canvas.Left="950" Canvas.Top="420" Opacity="0.55"/>
+                <TextBlock Text="❄" FontSize="24" Foreground="#e0f2fe" 
+                       Canvas.Left="80" Canvas.Top="520" Opacity="0.5"/>
+            </Canvas>
+
+            <!-- Welcome page with modern glass morphism design -->
+            <Grid x:Name="WelcomePage" Visibility="Visible">
+                <Grid.Background>
+                    <SolidColorBrush Color="#0f172a" Opacity="0.3"/>
+                </Grid.Background>
+
+                <Border MaxWidth="500" Background="#1e293b" CornerRadius="24" 
+                    Padding="50,60" Opacity="0.95"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#000000" BlurRadius="40" 
+                                     ShadowDepth="10" Opacity="0.6"/>
+                    </Border.Effect>
+
+                    <StackPanel>
+                        <!-- Enhanced title with better typography -->
+                        <TextBlock FontSize="52" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Margin="0,0,0,10"
+                               TextAlignment="Center">
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#fbbf24" Offset="0"/>
+                                    <GradientStop Color="#f59e0b" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#f59e0b" BlurRadius="25" ShadowDepth="0" Opacity="0.6"/>
+                            </TextBlock.Effect>
+                         <Run Text="Bienvenue"/>
+                        </TextBlock>
+
+                        <TextBlock Text="Calendrier de l'Avent Magique" FontSize="24" 
+                               Foreground="#cbd5e1" HorizontalAlignment="Center" 
+                               Margin="0,0,0,50" FontWeight="Light" TextAlignment="Center"/>
+
+                        <!-- Modern input design -->
+                        <TextBlock Text="Votre prénom" FontSize="16" Foreground="#94a3b8" 
+                               Margin="0,0,0,8" FontWeight="Medium"/>
+                        <Border Background="#334155" CornerRadius="10" Margin="0,0,0,35">
+                            <TextBox x:Name="UserNameInput" Height="50" FontSize="18" 
+                                 Background="Transparent" Foreground="White"
+                                 BorderThickness="0" Padding="20,0"
+                                 VerticalContentAlignment="Center"/>
+                        </Border>
+
+                    <!-- Enhanced primary button -->
+                    <Button Content="Commencer l'aventure" Height="55" 
+                        FontSize="18" Click="StartAdvent_Click"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Padding="40,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#dc2626" Offset="0"/>
+                                <GradientStop Color="#b91c1c" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

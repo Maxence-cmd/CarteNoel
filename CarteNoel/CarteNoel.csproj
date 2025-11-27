@@ -9,24 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\BoiteLettresPleine.png" />
-    <None Remove="Image\BoiteLettresVide.png" />
-    <None Remove="Video\248182_small.mp4" />
+    <Compile Remove="Video\**" />
+    <EmbeddedResource Remove="Video\**" />
+    <None Remove="Video\**" />
+    <Page Remove="Video\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Video\248182_small.mp4">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Image\BoiteLettresPleine.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Image\BoiteLettresVide.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Folder Include="Image\" />
   </ItemGroup>
 
 </Project>
