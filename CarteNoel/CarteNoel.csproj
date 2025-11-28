@@ -9,22 +9,123 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Image\BoiteLettresPleine.png" />
-    <None Remove="Image\BoiteLettresVide.png" />
-    <None Remove="Video\248182_small.mp4" />
+    <Compile Remove="Video\**" />
+    <EmbeddedResource Remove="Video\**" />
+    <None Remove="Video\**" />
+    <Page Remove="Video\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Video\248182_small.mp4">
+    <None Remove="Images\noel1.png" />
+    <None Remove="Images\noel10.png" />
+    <None Remove="Images\noel11.png" />
+    <None Remove="Images\noel12.png" />
+    <None Remove="Images\noel13.png" />
+    <None Remove="Images\noel14.png" />
+    <None Remove="Images\noel15.png" />
+    <None Remove="Images\noel16.png" />
+    <None Remove="Images\noel17.png" />
+    <None Remove="Images\noel18.png" />
+    <None Remove="Images\noel19.png" />
+    <None Remove="Images\noel2.png" />
+    <None Remove="Images\noel20.png" />
+    <None Remove="Images\noel21.png" />
+    <None Remove="Images\noel22.png" />
+    <None Remove="Images\noel23.png" />
+    <None Remove="Images\noel24.png" />
+    <None Remove="Images\noel25.png" />
+    <None Remove="Images\noel3.png" />
+    <None Remove="Images\noel4.png" />
+    <None Remove="Images\noel5.png" />
+    <None Remove="Images\noel6.png" />
+    <None Remove="Images\noel7.png" />
+    <None Remove="Images\noel8.png" />
+    <None Remove="Images\noel9.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Son\SonFond.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Image\BoiteLettresPleine.png">
+    <Resource Include="Images\noel5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Image\BoiteLettresVide.png">
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\noel1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel18.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel23.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel24.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel25.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noel9.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -7,5 +7,198 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1100">
     <Grid>
+        <Grid Name="BoutonsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Boutons 1 à 25 -->
+            <Button Grid.Row="1" Grid.Column="1" Tag="0" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel1.png" Width="50" Height="50"/>
+                    <TextBlock Text="1" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" Tag="1" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel2.png" Width="50" Height="50"/>
+                    <TextBlock Text="2" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" Tag="2" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel3.png" Width="50" Height="50"/>
+                    <TextBlock Text="3" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="4" Tag="3" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel4.png" Width="50" Height="50"/>
+                    <TextBlock Text="4" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="5" Tag="4" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel5.png" Width="50" Height="50"/>
+                    <TextBlock Text="5" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Ligne 2 -->
+            <Button Grid.Row="2" Grid.Column="1" Tag="5" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel6.png" Width="50" Height="50"/>
+                    <TextBlock Text="6" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="2" Tag="6" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel7.png" Width="50" Height="50"/>
+                    <TextBlock Text="7" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="3" Tag="7" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel8.png" Width="50" Height="50"/>
+                    <TextBlock Text="8" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="4" Tag="8" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel9.png" Width="50" Height="50"/>
+                    <TextBlock Text="9" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" Grid.Column="5" Tag="9" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel10.png" Width="50" Height="50"/>
+                    <TextBlock Text="10" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Ligne 3 -->
+            <Button Grid.Row="3" Grid.Column="1" Tag="10" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel11.png" Width="50" Height="50"/>
+                    <TextBlock Text="11" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="2" Tag="11" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel12.png" Width="50" Height="50"/>
+                    <TextBlock Text="12" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="3" Tag="12" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel13.png" Width="50" Height="50"/>
+                    <TextBlock Text="13" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="4" Tag="13" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel14.png" Width="50" Height="50"/>
+                    <TextBlock Text="14" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" Grid.Column="5" Tag="14" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel15.png" Width="50" Height="50"/>
+                    <TextBlock Text="15" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Ligne 4 -->
+            <Button Grid.Row="4" Grid.Column="1" Tag="15" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel16.png" Width="50" Height="50"/>
+                    <TextBlock Text="16" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="2" Tag="16" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel17.png" Width="50" Height="50"/>
+                    <TextBlock Text="17" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="3" Tag="17" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel18.png" Width="50" Height="50"/>
+                    <TextBlock Text="18" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="4" Tag="18" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel19.png" Width="50" Height="50"/>
+                    <TextBlock Text="19" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" Grid.Column="5" Tag="19" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel20.png" Width="50" Height="50"/>
+                    <TextBlock Text="20" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Ligne 5 -->
+            <Button Grid.Row="5" Grid.Column="1" Tag="20" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel21.png" Width="50" Height="50"/>
+                    <TextBlock Text="21" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="5" Grid.Column="2" Tag="21" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel22.png" Width="50" Height="50"/>
+                    <TextBlock Text="22" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="5" Grid.Column="3" Tag="22" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel23.png" Width="50" Height="50"/>
+                    <TextBlock Text="23" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="5" Grid.Column="4" Tag="23" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel24.png" Width="50" Height="50"/>
+                    <TextBlock Text="24" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="5" Grid.Column="5" Tag="24" Click="Button_Click" Background="Red" Margin="10">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Source="Images/noel25.png" Width="50" Height="50"/>
+                    <TextBlock Text="25" HorizontalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+        </Grid>
+        <Grid Name="MessageOverlay" Background="#AA000000" Visibility="Collapsed" MouseDown="MessageOverlay_MouseDown">
+            <Border x:Name="Mo" Background="White" CornerRadius="15" Padding="20" Width="300" Height="300"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <Image Name="PopupImage" Width="150" Height="150" Margin="0,0,0,10"/>
+                    <TextBlock Name="MessageText" Text="Phrase ici" FontSize="18" TextWrapping="Wrap" TextAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
     </Grid>
+
 </Window>

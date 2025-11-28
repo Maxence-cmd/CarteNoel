@@ -14,30 +14,27 @@ using System.Windows.Shapes;
 
 namespace CarteNoel
 {
+
     /// <summary>
     /// Logique d'interaction pour Window1.xaml
     /// </summary>
+     
     public partial class Window1 : Window
     {
+        private MediaPlayer musiquePlayer = new MediaPlayer();
         public Window1()
         {
             InitializeComponent();
-            
-            changerimage();
-        }
-        private void BackgroundVideo_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            BackgroundVideo.Position = TimeSpan.Zero;
-            BackgroundVideo.Play();
-        }
-        private void tbNom_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            musiquePlayer.Open(new Uri(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Son", "sonFond.mp3"), UriKind.Absolute));
+            musiquePlayer.MediaEnded += (s, e) => musiquePlayer.Position = TimeSpan.Zero;
+            musiquePlayer.Play();
 
         }
-        public void changerimage()
-        { 
-                
-                imgboite.Source = new BitmapImage(new Uri("pack://application:,,,/Image/BoiteLettresPleine.png"));
+
+        private void StartAdvent_Click(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            this.Close();
         }
     }
 }
