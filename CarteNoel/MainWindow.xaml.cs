@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using CarteNoel.views;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,6 +23,13 @@ namespace CarteNoel
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void StartAdvent_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Children.Clear();
+            Calendrier calendrier = new Calendrier();
+            Container.Children.Add(calendrier);
         }
     }
 

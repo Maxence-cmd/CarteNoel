@@ -7,7 +7,86 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1000">
 
-    <Grid>
-        
+    <Grid Name="Container">
+
+        <Grid.Resources>
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#dc2626"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Padding" Value="10,5"/>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Background gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#0f172a" Offset="0"/>
+                <GradientStop Color="#1e293b" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Welcome page with glassmorphism design -->
+        <Grid x:Name="WelcomePage" Visibility="Visible">
+            <Grid.Background>
+                <SolidColorBrush Color="#0f172a" Opacity="0.3"/>
+            </Grid.Background>
+
+            <Border MaxWidth="500" Background="#1e293b" CornerRadius="24" 
+                    Padding="50,60" Opacity="0.95"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="#000000" BlurRadius="40" 
+                                      ShadowDepth="10" Opacity="0.6"/>
+                </Border.Effect>
+
+                <StackPanel>
+                    <!-- Title -->
+                    <TextBlock FontSize="52" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Margin="0,0,0,10"
+                               TextAlignment="Center">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#fbbf24" Offset="0"/>
+                                <GradientStop Color="#f59e0b" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                        <TextBlock.Effect>
+                            <DropShadowEffect Color="#f59e0b" BlurRadius="25" ShadowDepth="0" Opacity="0.6"/>
+                        </TextBlock.Effect>
+                        <Run Text="Bienvenue"/>
+                    </TextBlock>
+
+                    <TextBlock Text="Calendrier de l'Avent Magique" FontSize="24" 
+                               Foreground="#cbd5e1" HorizontalAlignment="Center" 
+                               Margin="0,0,0,50" FontWeight="Light" TextAlignment="Center"/>
+
+                    <!-- Input -->
+                    <TextBlock Text="Votre prénom" FontSize="16" Foreground="#94a3b8" 
+                               Margin="0,0,0,8" FontWeight="Medium"/>
+                    <Border Background="#334155" CornerRadius="10" Margin="0,0,0,35">
+                        <TextBox x:Name="UserNameInput" Height="50" FontSize="18" 
+                                 Background="Transparent" Foreground="White"
+                                 BorderThickness="0" Padding="20,0"
+                                 VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Button -->
+                    <Button Content="Commencer l'aventure" Height="55" 
+                            FontSize="18" Click="StartAdvent_Click"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Padding="40,0">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#dc2626" Offset="0"/>
+                                <GradientStop Color="#b91c1c" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Window>
