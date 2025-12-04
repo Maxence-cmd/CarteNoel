@@ -1,4 +1,5 @@
 ﻿using CarteNoel.views;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,9 +28,18 @@ namespace CarteNoel
 
         private void StartAdvent_Click(object sender, RoutedEventArgs e)
         {
+            string prenom = UserNameInput.Text;
+            if (string.IsNullOrWhiteSpace(prenom))
+            {
+                MessageBox.Show("Entre ton prénom 🎅");
+                return;
+            }
             Container.Children.Clear();
-            Calendrier calendrier = new Calendrier();
+
+            Calendrier calendrier = new Calendrier(prenom);
             Container.Children.Add(calendrier);
+
+            
         }
     }
 

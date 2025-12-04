@@ -23,15 +23,23 @@ namespace CarteNoel.views
     public partial class Calendrier : UserControl
     {
         private Dictionary<int, string> Messages = new Dictionary<int, string>();
-
         private DispatcherTimer timer;
         private DateTime Noel = new DateTime(DateTime.Now.Year, 12, 25);
 
-        public Calendrier()
+
+        private string PrenomUtilisateur;
+
+
+        public Calendrier(string prenom)
         {
             InitializeComponent();
             ChargerMessages();
             DémarrerCompteRebours();
+            PrenomUtilisateur = prenom;
+            
+            WelcomeMessageText.Text = $"Bienvenue {PrenomUtilisateur} !";
+
+
         }
 
         private void ChargerMessages()
