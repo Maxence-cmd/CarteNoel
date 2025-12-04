@@ -7,65 +7,141 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
     <UserControl.Resources>
-        <!-- Exemple de style pour les cartes -->
+
+        <!-- Fond festif -->
+        <LinearGradientBrush x:Key="BackgroundNoel" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0B2C49" Offset="0"/>
+            <GradientStop Color="#7B1F1F" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Style carte -->
         <Style x:Key="CarteStyle" TargetType="Button">
             <Setter Property="Width" Value="100"/>
             <Setter Property="Height" Value="100"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="6"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="DarkRed"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="ContentTemplate">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Gold"/>
+            <Setter Property="Background">
                 <Setter.Value>
-                    <DataTemplate>
-                        <Grid>
-                            <Image Source="{Binding Image}" Stretch="UniformToFill" Opacity="0.7"/>
-                            <TextBlock Text="{Binding Jour}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </DataTemplate>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#B71C1C"/>
+                        <GradientStop Color="#2E7D32" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="12"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Tag}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="28"
+                                           FontWeight="Bold"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="{StaticResource BackgroundNoel}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Compte à rebours -->
-        <TextBlock x:Name="CountdownText" FontSize="24" FontWeight="Bold" 
-                   Foreground="Gold" HorizontalAlignment="Center" Margin="10"/>
+        <Border Grid.Row="0"
+        HorizontalAlignment="Center"
+        Margin="20"
+        Padding="25"
+        CornerRadius="40"
+        BorderThickness="3">
 
-        <!-- Grille des cartes -->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Gold"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#22FFFFFF"/>
+                    <GradientStop Color="#66B71C1C" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="25"
+                          ShadowDepth="0"
+                          Color="Gold"
+                          Opacity="0.8"/>
+            </Border.Effect>
+
+            <StackPanel HorizontalAlignment="Center">
+
+                <!-- Icônes festives -->
+                <TextBlock Text="❄️  🎄  🎁  🎄  ❄️"
+                   FontSize="28"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,6"/>
+
+                <TextBlock x:Name="CountdownText"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"/>
+
+            </StackPanel>
+        </Border>
+
+        <!-- 🎄 Titre et compte à rebours -->
+        <StackPanel HorizontalAlignment="Center" Margin="10">
+            <TextBlock FontSize="32"
+                       FontWeight="Bold"
+                       Foreground="Gold"
+                       Text="🎄 Calendrier de l'Avent 🎄"
+                       HorizontalAlignment="Center"/>
+
+
+        </StackPanel>
+
+        <!-- 🎁 Cartes -->
         <UniformGrid Grid.Row="1" Rows="4" Columns="6" Margin="20">
-            <!-- Chaque bouton représente une carte, ici exemple pour 24 jours -->
-            <Button Style="{StaticResource CarteStyle}" Tag="1"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="2"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="3"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="4"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="5"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="6"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="7"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="8"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="9"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="10"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="11"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="12"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="13"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="14"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="15"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="16"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="17"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="18"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="19"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="20"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="21"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="22"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="23"/>
-            <Button Style="{StaticResource CarteStyle}" Tag="24"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="1" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="2" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="3" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="4" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="5" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="6" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="7" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="8" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="9" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="10" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="11" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="12" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="13" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="14" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="15" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="16" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="17" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="18" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="19" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="20" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="21" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="22" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="23" Click="Jour_Click"/>
+            <Button Style="{StaticResource CarteStyle}" Tag="24" Click="Jour_Click"/>
         </UniformGrid>
     </Grid>
 </UserControl>
