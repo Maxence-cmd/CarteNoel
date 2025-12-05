@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -25,7 +26,7 @@ namespace CarteNoel.views
         private Dictionary<int, string> Messages = new Dictionary<int, string>();
         private DispatcherTimer timer;
         private DateTime Noel = new DateTime(DateTime.Now.Year, 12, 25);
-
+        private string[] phrasesNoel;
 
         private string PrenomUtilisateur;
 
@@ -33,42 +34,43 @@ namespace CarteNoel.views
         public Calendrier(string prenom)
         {
             InitializeComponent();
-            ChargerMessages();
+           
             DémarrerCompteRebours();
             PrenomUtilisateur = prenom;
             
             WelcomeMessageText.Text = $"Bienvenue {PrenomUtilisateur} !";
-
+            phrasesNoel = new string[]
+            {
+                "Joyeux Noël ! Que ta journée soit remplie de magie et de douceur.",
+                "Que la paix et la joie de Noël t’accompagnent tout au long de l'année.",
+                "Je te souhaite un Noël chaleureux entouré de ceux que tu aimes.",
+                "Que l'esprit de Noël illumine ton cœur.",
+                "Passe un merveilleux Noël plein de sourires et de bonheur.",
+                "Que cette fête t’apporte sérénité et enchantement.",
+                "Joyeux Noël ! Que chaque instant soit un cadeau.",
+                "Que la magie de Noël brille dans ta vie.",
+                "Un très joyeux Noël à toi et à ta famille.",
+                "Que ce Noël soit rempli d’amour et de tendresse.",
+                "Je te souhaite un Noël doux comme un chocolat chaud.",
+                "Que les étoiles de Noël veillent sur ton foyer.",
+                "Joyeuses fêtes et plein de belles surprises !",
+                "Que le bonheur de Noël remplisse ta maison.",
+                "Passe un Noël magnifique rempli de paix.",
+                "Que ton réveillon soit aussi beau que ton sourire.",
+                "Joyeux Noël, que ton cœur soit léger et heureux.",
+                "Que ce Noël t’apporte tout ce que tu espères.",
+                "Je te souhaite un Noël magique et scintillant.",
+                "Que ton Noël soit aussi merveilleux que toi.",
+                "Un Noël plein d’amour, de joie et de rires.",
+                "Que ce jour spécial te comble de bonheur.",
+                "Joyeux Noël ! Profite de chaque instant précieux.",
+                "Que la magie de Noël te réchauffe le cœur.",
+                "Un Noël radieux et joyeux rien que pour toi."
+            };
 
         }
 
-        private void ChargerMessages()
-        {
-            Messages.Add(1, "Premier sourire de Noël 🎅");
-            Messages.Add(2, "Un chocolat chaud pour toi ☕");
-            Messages.Add(3, "Une chanson de Noël 🎵");
-            Messages.Add(4, "Un câlin magique 🤗");
-            Messages.Add(5, "Un flocon de bonheur ❄️");
-            Messages.Add(6, "Une surprise se prépare 🎁");
-            Messages.Add(7, "Une lumière dans la nuit ✨");
-            Messages.Add(8, "Une pensée positive 💭");
-            Messages.Add(9, "Un vœu secret 🤍");
-            Messages.Add(10, "Un moment cocooning 🕯️");
-            Messages.Add(11, "Une douceur sucrée 🍬");
-            Messages.Add(12, "Une joie partagée 🎊");
-            Messages.Add(13, "De la magie dans l’air 🪄");
-            Messages.Add(14, "Un sourire offert 😊");
-            Messages.Add(15, "Une surprise approche 🎅");
-            Messages.Add(16, "Un peu de rêve 🌙");
-            Messages.Add(17, "Un chant de Noël 🎶");
-            Messages.Add(18, "De la neige dans le cœur ❄️");
-            Messages.Add(19, "Un souhait magique 🎁");
-            Messages.Add(20, "Une étincelle de joie ✨");
-            Messages.Add(21, "Bientôt le jour tant attendu 🎄");
-            Messages.Add(22, "Le Père Noël approche 🎅");
-            Messages.Add(23, "La magie est presque là 🎁");
-            Messages.Add(24, "Demain… C’EST NOËL 🎄🎉");
-        }
+       
 
         private void DémarrerCompteRebours()
         {
@@ -93,23 +95,100 @@ namespace CarteNoel.views
             }
         }
 
-        private void Jour_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && int.TryParse(btn.Tag.ToString(), out int jour))
-            {
-                if (DateTime.Now.Day < jour)
-                {
-                    MessageBox.Show("⏳ Patience... Ce jour n'est pas encore arrivé !");
-                    return;
-                }
+            
 
-                if (Messages.ContainsKey(jour))
-                {
-                    MessageBox.Show(Messages[jour], $"Jour {jour}", MessageBoxButton.OK, MessageBoxImage.Information);
-                    btn.IsEnabled = false;
-                    btn.Opacity = 0.5;
-                }
+            if (sender is not Button btn) return;
+
+            int jour = int.Parse(btn.Tag.ToString());   // Le numéro réel de la case
+            int index = jour - 1;                       // Index pour tableaux (0 → jour 1)
+
+            // ---- 🗓️ Vérification de la date ----
+            DateTime today = DateTime.Today;
+            int jourDecembre = today.Month == 12 ? today.Day : 0;
+
+            if (jour > jourDecembre)
+            {
+                MessageBox.Show($"⏳ Vous pourrez ouvrir cette case dans {jour - jourDecembre} jour(s) !");
+                return;
             }
+            AnimatePopup();
+            // ---- 🎁 MET LE MESSAGE DU JOUR ----
+            if (phrasesNoel != null && index >= 0 && index < phrasesNoel.Length)
+                MessageText.Text = phrasesNoel[index];
+            else
+                MessageText.Text = $"Voici ton message du jour {jour} ! 🎄";
+
+            // ---- 🖼️ MET L’IMAGE DU JOUR ----
+            try
+            {
+                if (imagePaths != null && index >= 0 && index < imagePaths.Length)
+                    PopupImage.Source = new BitmapImage(new Uri(imagePaths[index], UriKind.Relative));
+                else
+                    PopupImage.Source = new BitmapImage(new Uri($"/Image/noel{jour}.png", UriKind.Relative));
+            }
+            catch
+            {
+                PopupImage.Source = null; // En cas d'image manquante
+            }
+
+            // ---- ✨ ANIMATION DE LA POPUP ----
+            FlipScale.ScaleX = 0;
+            var anim = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(250));
+            FlipScale.BeginAnimation(ScaleTransform.ScaleXProperty, anim);
+
+            // ---- 👀 AFFICHE LA POPUP ----
+            MessageOverlay.Visibility = Visibility.Visible;
+
+            // ---- 🎨 Effet visuel sur la case ouverte ----
+            btn.Opacity = 0.5;
+
+        }
+        private string[] imagePaths = new string[]
+        {
+            "/Image/noel1.jpg",
+            "/Image/noel2.jpg",
+            "/Image/noel3.jpg",
+            "/Image/noel4.jpg",
+            "/Image/noel5.jpg",
+            "/Image/noel6.jpg",
+            "/Image/noel7.jpg",
+            "/Image/noel8.jpg",
+            "/Image/noel9.jpg",
+            "/Image/noel10.jpg",
+            "/Image/noel11.jpg",
+            "/Image/noel12.jpg",
+            "/Image/noel13.jpg",
+            "/Image/noel14.jpg",
+            "/Image/noel15.jpg",
+            "/Image/noel16.jpg",
+            "/Image/noel17.jpg",
+            "/Image/noel18.jpg",
+            "/Image/noel19.jpg",
+            "/Image/noel20.jpg",
+            "/Image/noel21.jpg",
+            "/Image/noel22.jpg",
+            "/Image/noel23.jpg",
+            "/Image/noel24.jpg"
+        };   
+
+        private void AnimatePopup()
+        {
+            var animation = new DoubleAnimation
+            {
+                From = 0,       // invisible horizontalement
+                To = 1,         // visible
+                Duration = TimeSpan.FromMilliseconds(500),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            FlipScale.BeginAnimation(ScaleTransform.ScaleXProperty, animation);
+        }
+
+        private void MessageOverlay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageOverlay.Visibility = Visibility.Collapsed;
         }
 
     }
