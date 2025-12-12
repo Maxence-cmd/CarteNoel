@@ -113,7 +113,7 @@ namespace CarteNoel.views
                 MessageBox.Show($"⏳ Vous pourrez ouvrir cette case dans {jour - jourDecembre} jour(s) !");
                 return;
             }
-            AnimatePopup();
+            PopupImage();
             // ---- 🎁 MET LE MESSAGE DU JOUR ----
             if (phrasesNoel != null && index >= 0 && index < phrasesNoel.Length)
                 MessageText.Text = phrasesNoel[index];
@@ -173,7 +173,7 @@ namespace CarteNoel.views
             "/Image/noel24.jpg"
         };   
 
-        private void AnimatePopup()
+        private void PopupImage()
         {
             var animation = new DoubleAnimation
             {
