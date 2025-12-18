@@ -113,7 +113,7 @@ namespace CarteNoel.views
                 MessageBox.Show($"⏳ Vous pourrez ouvrir cette case dans {jour - jourDecembre} jour(s) !");
                 return;
             }
-            PopupImage();
+            PopupsImage();
             // ---- 🎁 MET LE MESSAGE DU JOUR ----
             if (phrasesNoel != null && index >= 0 && index < phrasesNoel.Length)
                 MessageText.Text = phrasesNoel[index];
@@ -147,33 +147,33 @@ namespace CarteNoel.views
         }
         private string[] imagePaths = new string[]
         {
-            "/Image/noel1.jpg",
-            "/Image/noel2.jpg",
-            "/Image/noel3.jpg",
-            "/Image/noel4.jpg",
-            "/Image/noel5.jpg",
-            "/Image/noel6.jpg",
-            "/Image/noel7.jpg",
-            "/Image/noel8.jpg",
-            "/Image/noel9.jpg",
-            "/Image/noel10.jpg",
-            "/Image/noel11.jpg",
-            "/Image/noel12.jpg",
-            "/Image/noel13.jpg",
-            "/Image/noel14.jpg",
-            "/Image/noel15.jpg",
-            "/Image/noel16.jpg",
-            "/Image/noel17.jpg",
-            "/Image/noel18.jpg",
-            "/Image/noel19.jpg",
-            "/Image/noel20.jpg",
-            "/Image/noel21.jpg",
-            "/Image/noel22.jpg",
-            "/Image/noel23.jpg",
-            "/Image/noel24.jpg"
+            "/Image/noel1.png",
+            "/Image/noel2.png",
+            "/Image/noel3.png",
+            "/Image/noel4.png",
+            "/Image/noel5.png",
+            "/Image/noel6.png",
+            "/Image/noel7.png",
+            "/Image/noel8.png",
+            "/Image/noel9.png",
+            "/Image/noel10.png",
+            "/Image/noel11.png",
+            "/Image/noel12.png",
+            "/Image/noel13.png",
+            "/Image/noel14.png",
+            "/Image/noel15.png",
+            "/Image/noel16.png",
+            "/Image/noel17.png",
+            "/Image/noel18.png",
+            "/Image/noel19.png",
+            "/Image/noel20.png",
+            "/Image/noel21.png",
+            "/Image/noel22.png",
+            "/Image/noel23.png",
+            "/Image/noel24.png"
         };   
 
-        private void PopupImage()
+        private void PopupsImage()
         {
             var animation = new DoubleAnimation
             {

@@ -16,7 +16,7 @@
         </LinearGradientBrush>
 
         <!-- Style carte -->
-        <Style x:Key="CarteStyle" TargetType="Button">
+        <Style x:Key="CarteStyle" TargetType="Button" >
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="150"/>
             <Setter Property="Margin" Value="6"/>
@@ -28,6 +28,39 @@
                         <GradientStop Color="#B71C1C"/>
                         <GradientStop Color="#2E7D32" Offset="1"/>
                     </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <!-- ✨ Coins arrondis -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="20">
+
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        </Border>
+
+                        <!-- États visuels -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.7"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.97" ScaleY="0.97"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
