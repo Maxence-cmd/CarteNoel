@@ -1,0 +1,346 @@
+﻿<UserControl x:Class="CarteNoel.views.Calendrier"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarteNoel.views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1100">
+
+    <UserControl.Resources>
+
+        <!-- Fond festif -->
+        <LinearGradientBrush x:Key="BackgroundNoel" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0B2C49" Offset="0"/>
+            <GradientStop Color="#7B1F1F" Offset="1"/>
+        </LinearGradientBrush>
+
+        <!-- Style carte -->
+        <Style x:Key="CarteStyle" TargetType="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="120"/>
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Gold"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#B71C1C"/>
+                        <GradientStop Color="#2E7D32" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    
+
+
+    <!-- ================= GRID PRINCIPAL ================= -->
+    <Grid Background="{StaticResource BackgroundNoel}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+      
+
+        <!-- ================= ZONE TITRE ================= -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,5">
+                <TextBlock Text="🎄 Calendrier de l'Avent "
+                           FontSize="36" FontWeight="Bold"
+                           Foreground="Gold"/>
+                <TextBlock x:Name="UserNameText"
+                           FontSize="36" FontWeight="Bold"
+                           Foreground="LightGreen"/>
+            </StackPanel>
+
+            <TextBlock x:Name="WelcomeMessageText"
+                       FontSize="22"
+                       FontStyle="Italic"
+                       FontWeight="SemiBold"
+                       Foreground="LightGoldenrodYellow"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+            <Border HorizontalAlignment="Center"
+                    Padding="20"
+                    CornerRadius="40"
+                    BorderThickness="3">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Gold"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="❄️  🎄  🎁  🎄  ❄️"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="CountdownText"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="LightYellow"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+
+
+        <!-- ================= 24 CARTES ================= -->
+        <UniformGrid Grid.Row="1" Rows="4" Columns="6" Margin="15">
+
+            <!-- MODELE : Image + Numéro du jour en dessous -->
+            <!-- Tous les boutons suivent la même structure -->
+
+            <!-- 1 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="1" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel1.png" Width="50" Height="50"/>
+                    <TextBlock Text="1" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 2 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="2" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel2.png" Width="50" Height="50"/>
+                    <TextBlock Text="2" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 3 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="3" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel3.png" Width="50" Height="50"/>
+                    <TextBlock Text="3" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 4 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="4" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel4.png" Width="50" Height="50"/>
+                    <TextBlock Text="4" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 5 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="5" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel5.png" Width="50" Height="50"/>
+                    <TextBlock Text="5" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 6 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="6" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel6.png" Width="50" Height="50"/>
+                    <TextBlock Text="6" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 7 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="7" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel7.png" Width="50" Height="50"/>
+                    <TextBlock Text="7" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 8 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="8" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel8.png" Width="50" Height="50"/>
+                    <TextBlock Text="8" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 9 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="9" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel9.png" Width="50" Height="50"/>
+                    <TextBlock Text="9" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 10 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="10" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel10.png" Width="50" Height="50"/>
+                    <TextBlock Text="10" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 11 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="11" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel11.png" Width="50" Height="50"/>
+                    <TextBlock Text="11" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 12 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="12" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel12.png" Width="50" Height="50"/>
+                    <TextBlock Text="12" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 13 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="13" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel13.png" Width="50" Height="50"/>
+                    <TextBlock Text="13" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 14 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="14" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel14.png" Width="50" Height="50"/>
+                    <TextBlock Text="14" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 15 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="15" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel15.png" Width="50" Height="50"/>
+                    <TextBlock Text="15" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 16 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="16" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel16.png" Width="50" Height="50"/>
+                    <TextBlock Text="16" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 17 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="17" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel17.png" Width="50" Height="50"/>
+                    <TextBlock Text="17" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 18 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="18" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel18.png" Width="50" Height="50"/>
+                    <TextBlock Text="18" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 19 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="19" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel19.png" Width="50" Height="50"/>
+                    <TextBlock Text="19" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 20 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="20" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel20.png" Width="50" Height="50"/>
+                    <TextBlock Text="20" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 21 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="21" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel21.png" Width="50" Height="50"/>
+                    <TextBlock Text="21" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 22 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="22" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel22.png" Width="50" Height="50"/>
+                    <TextBlock Text="22" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 23 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="23" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel23.png" Width="50" Height="50"/>
+                    <TextBlock Text="23" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 24 -->
+            <Button Style="{StaticResource CarteStyle}" Tag="24" Click="Button_Click">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="/Image/noel24.png" Width="50" Height="50"/>
+                    <TextBlock Text="24" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+        <Grid Name="MessageOverlay"
+              Background="#AA000000"
+              Visibility="Collapsed"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Panel.ZIndex="999"          
+              MouseDown="MessageOverlay_MouseDown">
+
+            <Border x:Name="Mo"
+            CornerRadius="15"
+            Padding="20"
+            Width="350"
+            Height="350"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            RenderTransformOrigin="0.5,0.5">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#B71C1C" Offset="0"/>
+                        <GradientStop Color="#2E7D32" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Border.RenderTransform>
+                    <ScaleTransform x:Name="FlipScale" ScaleX="0"/>
+                </Border.RenderTransform>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                    <Image Name="PopupImage"
+                   Width="180"
+                   Height="180"
+                   Margin="0,0,0,10"
+                   Stretch="UniformToFill"/>
+
+                    <TextBlock Name="MessageText"
+                       Text="Phrase ici"
+                       FontSize="20"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Foreground="White"/>
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+        
+
+    </Grid>
+</UserControl>
